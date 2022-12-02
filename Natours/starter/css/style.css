@@ -8,12 +8,16 @@
   /* General app defaults */
   --default-font-color: #777;
   --default-font-size: 62.5%;
+  --body-padding: 3rem;
+
+  /* Header defaults */
   --header-height: 95vh;
   --header-grad-lightgreen: #7ed56fc0;
   --header-grad-darkgreen: #28b485c0;
   --heading-line-height: 1.7;
   --heading-font-weight: 400;
-  --body-padding: 3rem;
+  --background-image: url(../img/hero.jpg);
+  
 
   /* Header Logo */
   --header-logo-spacing: 4rem;
@@ -38,6 +42,52 @@
   --header-btn-box-shad: 1rem;
 }
 
+/* KEYFRAMES */
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-15rem)
+  }
+
+  50% {
+    color: var(--default-font-color)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem)
+  }
+
+  50% {
+    color: var(--default-font-color);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
 html {
   font-size: var(--default-font-size);
 }
@@ -55,7 +105,7 @@ body {
 
 .header {
   height: var(--header-height); 
-  background-image: linear-gradient(to right bottom, var(--header-grad-lightgreen), var(--header-grad-darkgreen)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, var(--header-grad-lightgreen), var(--header-grad-darkgreen)), var(--background-image);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -89,6 +139,7 @@ body {
   text-transform: uppercase;
   backface-visibility: hidden;
   margin-bottom: var(--heading-primary-margin);
+  text-align: justify;
 }
 
 .heading-primary--main {
@@ -96,14 +147,12 @@ body {
   font-size: var(--heading-primary-font-size);
   font-weight: var(--heading-primary-font-weight);
   letter-spacing: var(--heading-primary-letter-spacing);
-  animation-name: moveInLeft;
-  animation-duration: 5s;
-  animation-timing-function: ease-out;
+  animation: moveInLeft 2s ease-out;
 }
 
 .heading-primary--sub {
   display: block;
-  font-size: var(heading-sub-font-size);
+  font-size: var(--heading-sub-font-size);
   font-weight: var(--heading-sub-font-weight);
   letter-spacing: var(--heading-sub-letter-spacing);
   animation: moveInRight 1s ease-in;
@@ -160,56 +209,7 @@ body {
 }
 
 .btn--animated {
-  animation: moveInBottom 2s ease-in 1s;
+  animation: moveInBottom 1s ease-in 1s;
   animation-fill-mode: backwards;
 }
 
-/* KEYFRAMES */
-
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateY(-15rem)
-  }
-
-  50% {
-    color: var(--default-font-color)
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0)
-  }
-}
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(5rem)
-  }
-
-  50% {
-    color: var(--default-font-color);
-  }
-
-  80% {
-    transform: translateX(-1rem);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0)
-  }
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem)
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0)
-  }
-}
